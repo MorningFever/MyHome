@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>홈페이지</title>
+  <link rel="stylesheet" th:href="@{/css/minimaltable.css}">
+</head>
+<body>
+<nav>
+  <a href="/main">메인화면</a>
+  <a href="/bbs">게시판</a>
+</nav>
+<h2 th:text="${myPosts.subject}"></h2>
+<div th:text="${myPosts.content}"></div>
+<a th:href="@{|/bbs/edit/${myPosts.postId}|}">글 수정하기</a>
+<a th:href="@{|/bbs/delete/${myPosts.postId}|}">글 삭제하기</a>
+</body>
+</html>

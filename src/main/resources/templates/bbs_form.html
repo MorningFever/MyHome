@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>홈페이지</title>
+  <link rel="stylesheet" th:href="@{/css/minimaltable.css}">
+</head>
+<body>
+<nav>
+  <a href="/main">메인화면</a>
+  <a href="/bbs">게시판</a>
+</nav>
+<h2>질문등록</h2>
+<form th:action="@{/bbs/create}" method="post">
+  <div>
+    <label for="userName">작성자</label>
+    <input type="text" name="userName" id="userName">
+  </div>
+  <div>
+    <label for="postSubject">제목</label>
+    <input type="text" name="subject" id="postSubject">
+  </div>
+  <div>
+    <label for="postContent">내용</label>
+    <textarea name="content" id="postContent"></textarea>
+  </div>
+<input type="submit" value="제출하기">
+</form>
+
+</body>
+</html>

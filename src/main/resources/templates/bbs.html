@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>홈페이지</title>
+    <link rel="stylesheet" th:href="@{/css/minimaltable.css}">
+</head>
+<body>
+<nav>
+    <a href="/main">메인화면</a>
+    <a href="/bbs">게시판</a>
+</nav>
+<h2>간단한 게시판</h2>
+<table>
+    <thead>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일시</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="myPosts : ${myPostsList}">
+            <td th:text="${myPosts.postId}"></td>
+            <td>
+                <a th:href="@{|/bbs/view/${myPosts.postId}|}" th:text="${myPosts.subject}"></a>
+            </td>
+            <td th:text="${myPosts.userName}"></td>
+            <td th:text="${myPosts.postedDate}"></td>
+        </tr>
+    </tbody>
+</table>
+<a th:href="@{/bbs/create}">새 글 등록하기</a>
+</body>
+</html>
